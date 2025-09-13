@@ -2,6 +2,7 @@ package com.example.pib2.models.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.List;
 
 @Entity
 @Table(name = "clinics")
@@ -35,5 +36,9 @@ public class Clinic {
     private String instagram;
     private String whatsapp;
     private String tiktok;
+
+    // 🔗 Relación con Appointment (Uno a Muchos)
+    @OneToMany(mappedBy = "clinic", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Appointment> appointments;
 
 }

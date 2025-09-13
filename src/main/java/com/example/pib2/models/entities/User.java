@@ -1,6 +1,7 @@
 package com.example.pib2.models.entities;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -28,6 +29,10 @@ public class User {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private Rol rol;
+
+    // 📌 Relación con Appointment (un usuario puede tener muchas citas)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Appointment> appointments;
 
     // ====== CONSTRUCTORES ======
     public User() {}
@@ -97,6 +102,14 @@ public class User {
 
     public void setRol(Rol rol) {
         this.rol = rol;
+    }
+
+    public List<Appointment> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(List<Appointment> appointments) {
+        this.appointments = appointments;
     }
 
     // ====== ENUM DE ROLES ======

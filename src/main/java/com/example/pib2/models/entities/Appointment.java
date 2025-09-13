@@ -20,7 +20,19 @@ public class Appointment {
 
     private String medico;
 
+    // 🔗 Relación con User (Muchos a Uno)
+    @ManyToOne
+    @JoinColumn(name = "user_id") // crea la FK user_id en appointments
+    private User user;
+
+    // 🔗 Relación con Clinic (Muchos a Uno)
+    @ManyToOne
+    @JoinColumn(name = "clinic_id") // crea la FK clinic_id en appointments
+    private Clinic clinic;
+
+    // =======================
     // Getters y setters
+    // =======================
     public Long getId() {
         return id;
     }
@@ -60,5 +72,20 @@ public class Appointment {
     public void setMedico(String medico) {
         this.medico = medico;
     }
-}
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Clinic getClinic() {
+        return clinic;
+    }
+
+    public void setClinic(Clinic clinic) {
+        this.clinic = clinic;
+    }
+}
