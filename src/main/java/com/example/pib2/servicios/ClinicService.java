@@ -1,5 +1,5 @@
 package com.example.pib2.servicios;
 
-public class UserService {
+public class ClinicService {
 
 }
