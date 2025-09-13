@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users")  // Nombre de la tabla en la BD
-public class User {
+public class UserService {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Autoincremental
@@ -30,9 +30,9 @@ public class User {
     private Rol rol;  // PACIENTE o MEDICO
 
     // ====== CONSTRUCTORES ======
-    public User() {}
+    public UserService() {}
 
-    public User(String nombre, String email, String password,
+    public UserService(String nombre, String email, String password,
                 String tipoDocumento, String numeroDocumento, Rol rol) {
         this.nombre = nombre;
         this.email = email;
