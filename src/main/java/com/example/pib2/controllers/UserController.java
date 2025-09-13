@@ -49,7 +49,7 @@ public class UserController {
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User userDetails) {
         return userRepository.findById(id)
                 .map(user -> {
-                    user.setName(userDetails.getName());
+                    user.setNombre(userDetails.getNombre());
                     user.setEmail(userDetails.getEmail());
                     user.setPassword(userDetails.getPassword());
                     return ResponseEntity.ok(userRepository.save(user));
