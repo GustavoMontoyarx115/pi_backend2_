@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.pib2.models.entities.Appointment;
-import com.example.pib2.servicios.AppointmentService;
 
 @RestController
 @RequestMapping("/api/appointments")
