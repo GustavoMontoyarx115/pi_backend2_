@@ -1,6 +1,10 @@
 package com.example.pib2.repositories;
 
 import com.example.pib2.models.entities.Clinic;
+
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
