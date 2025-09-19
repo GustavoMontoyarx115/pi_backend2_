@@ -1,6 +1,5 @@
 package com.example.pib2.config;
 
-
 import com.example.pib2.models.entities.Appointment;
 import com.example.pib2.models.entities.Clinic;
 import com.example.pib2.models.entities.User;
@@ -14,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Optional;
 
 @Configuration
 public class AppointmentConfig {
@@ -26,18 +26,22 @@ public class AppointmentConfig {
     ) {
         return args -> {
             if (appointmentRepository.count() == 0) {
-                // Crear usuario de prueba
-                User user = new User(
-                        "Juan Pérez",
-                        "juan@example.com",
-                        "123456",
-                        "CC",
-                        "123456789",
-                        Rol.PACIENTE
-                );
-                userRepository.save(user);
+                // ✅ Buscar si ya existe el usuario por email
+                Optional<User> existingUser = Optional.ofNullable(userRepository.findByEmail("juan@example.com"));
 
-                // Crear clínica de prueba
+                User user = existingUser.orElseGet(() -> {
+                    User nuevo = new User(
+                            "Juan Pérez",
+                            "juan@example.com",
+                            "123456",
+                            "CC",
+                            "123456789",
+                            Rol.PACIENTE
+                    );
+                    return userRepository.save(nuevo);
+                });
+
+                // ✅ Crear clínica de prueba
                 Clinic clinic = Clinic.builder()
                         .name("Clínica Central")
                         .description("Clínica especializada en dermatología")
@@ -51,7 +55,7 @@ public class AppointmentConfig {
                         .build();
                 clinicRepository.save(clinic);
 
-                // Crear cita de prueba
+                // ✅ Crear cita de prueba
                 Appointment cita = new Appointment();
                 cita.setNombre("Cita inicial");
                 cita.setFecha(LocalDate.now().plusDays(1));
