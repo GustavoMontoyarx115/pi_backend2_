@@ -55,16 +55,18 @@ public class AppointmentConfig {
                         .build();
                 clinicRepository.save(clinic);
 
-                // ✅ Crear cita de prueba
-                Appointment cita = new Appointment();
+          
+ Appointment cita = new Appointment();
                 cita.setNombre("Cita inicial");
-                cita.setFecha(LocalDate.now().plusDays(1));
-                cita.setHora(LocalTime.of(10, 0));
                 cita.setMedico("Dra. Martínez");
-                cita.setUser(user);
-                cita.setClinic(clinic);
+                cita.setFecha(LocalDate.of(2025, 9, 20));
+                cita.setHora(LocalTime.of(10, 0));
+                cita.setUser(user);      // usuario existente
+                cita.setClinic(clinic);  // clínica existente
+                cita.setCorreo("correo@ejemplo.com"); // ✅ ESTE ES EL NUEVO CAMPO OBLIGATORIO
 
-                appointmentRepository.save(cita);
+                    appointmentRepository.save(cita);
+
 
                 System.out.println("✅ Datos iniciales cargados en Appointment");
             }

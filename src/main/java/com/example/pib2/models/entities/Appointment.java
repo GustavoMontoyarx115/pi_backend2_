@@ -29,16 +29,16 @@ public class Appointment {
 
     // 🔗 Relación con User (Muchos a Uno)
     @ManyToOne
-    @JoinColumn(name = "user_id") // crea la FK user_id en appointments
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     // 🔗 Relación con Clinic (Muchos a Uno)
     @ManyToOne
-    @JoinColumn(name = "clinic_id") // crea la FK clinic_id en appointments
+    @JoinColumn(name = "clinic_id", nullable = false)
     private Clinic clinic;
 
     // =======================
-    // Getters y setters
+    // Getters y Setters
     // =======================
     public Long getId() {
         return id;
