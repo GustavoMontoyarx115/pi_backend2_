@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.pib2.models.entities.Appointment;
+import com.example.pib2.servicios.AppointmentService;
 
 @RestController
 @RequestMapping("/api/appointments")
@@ -18,6 +19,14 @@ public class AppointmentControllers {
 
     @Autowired
     private AppointmentService service;
+
+    public AppointmentService getService() {
+        return service;
+    }
+
+    public void setService(AppointmentService service) {
+        this.service = service;
+    }
 
     @GetMapping
     public List<Appointment> getAllAppointments() {
