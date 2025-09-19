@@ -19,7 +19,7 @@ public class Service {
     @Column(length = 1000) // Para descripciones largas
     private String descripcion;
 
-    // 🔗 Relación con Clinic (Muchos servicios pertenecen a una clínica)
+    //  Relación con Clinic (Muchos servicios pertenecen a una clínica)
     @ManyToOne
     @JoinColumn(name = "clinic_id", nullable = false)
     private Clinic clinic;

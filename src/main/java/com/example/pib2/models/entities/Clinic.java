@@ -27,7 +27,7 @@ public class Clinic {
     private String address;
 
     @Column(length = 100)
-    private String city;  // 🟢 Nuevo campo para que funcione findByCity
+    private String city;  //  Nuevo campo para que funcione findByCity
 
     @Column(length = 20)
     private String phone;
@@ -51,4 +51,10 @@ public class Clinic {
     @OneToMany(mappedBy = "clinic", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Appointment> appointments;
 
+    // 🔹 Constructor personalizado para inicializar rápido una clínica
+    public Clinic(String name, String address, String phone) {
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+    }
 }
