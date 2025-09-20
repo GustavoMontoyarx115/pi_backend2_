@@ -1,6 +1,5 @@
 package com.example.pib2.controllers;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,22 +13,15 @@ import com.example.pib2.servicios.AppointmentService;
 
 @RestController
 @RequestMapping("/api/appointments")
-@CrossOrigin(origins = "http://localhost:3000") // para permitir el frontend
+@CrossOrigin(origins = "http://localhost:3000") // permite llamadas desde el frontend
 public class AppointmentControllers {
 
     @Autowired
-    private AppointmentService service;
+    private AppointmentService appointmentService;
 
-    public AppointmentService getService() {
-        return service;
-    }
-
-    public void setService(AppointmentService service) {
-        this.service = service;
-    }
-
+    // Obtener todas las citas
     @GetMapping
     public List<Appointment> getAllAppointments() {
-        return service.findAll();
+        return appointmentService.findAll();
     }
 }
