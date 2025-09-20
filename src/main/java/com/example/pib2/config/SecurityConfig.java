@@ -1,6 +1,5 @@
 package com.example.pib2.config;
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -12,12 +11,20 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable()) // 🔹 desactivar CSRF (para pruebas y APIs REST)
+            .csrf(csrf -> csrf.disable()) // 🔹 desactivar CSRF para APIs REST
             .authorizeHttpRequests(auth -> auth
                 // Rutas públicas (sin autenticación)
                 .requestMatchers("/api/users/**").permitAll()
                 .requestMatchers("/api/appointments/**").permitAll()
-                .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll() // Swagger docs
+
+                // Swagger OpenAPI (se deja público)
+                .requestMatchers(
+                    "/swagger-ui.html",
+                    "/swagger-ui/**",
+                    "/v3/api-docs/**",
+                    "/v3/api-docs.yaml"
+                ).permitAll()
+
                 // Todo lo demás requiere autenticación
                 .anyRequest().authenticated()
             )
@@ -27,4 +34,3 @@ public class SecurityConfig {
         return http.build();
     }
 }
-
