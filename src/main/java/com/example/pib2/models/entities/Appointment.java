@@ -12,26 +12,33 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 120)
     private String nombre;
 
+    @Column(nullable = false, length = 150)
+    private String correo;  // ⚡ Campo obligatorio
+
+    @Column(nullable = false)
     private LocalDate fecha;
 
+    @Column(nullable = false)
     private LocalTime hora;
 
+    @Column(nullable = false, length = 120)
     private String medico;
 
     // 🔗 Relación con User (Muchos a Uno)
     @ManyToOne
-    @JoinColumn(name = "user_id") // crea la FK user_id en appointments
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     // 🔗 Relación con Clinic (Muchos a Uno)
     @ManyToOne
-    @JoinColumn(name = "clinic_id") // crea la FK clinic_id en appointments
+    @JoinColumn(name = "clinic_id", nullable = false)
     private Clinic clinic;
 
     // =======================
-    // Getters y setters
+    // Getters y Setters
     // =======================
     public Long getId() {
         return id;
@@ -47,6 +54,14 @@ public class Appointment {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public LocalDate getFecha() {

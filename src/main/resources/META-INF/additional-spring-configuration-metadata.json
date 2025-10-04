@@ -1,0 +1,77 @@
+{"properties": [
+  {
+    "name": "=\r\nspring.jpa.database-platf",
+    "type": "java.lang.String",
+    "description": "A description for '=\r\nspring.jpa.database-platf'"
+  },
+  {
+    "name": "\nspring.datasource.ur",
+    "type": "java.lang.String",
+    "description": "A description for '\nspring.datasource.ur'"
+  },
+  {
+    "name": "\nspring.datasource.usernam",
+    "type": "java.lang.String",
+    "description": "A description for '\nspring.datasource.usernam'"
+  },
+  {
+    "name": "\r\nspring.datasource.passwo",
+    "type": "java.lang.String",
+    "description": "A description for '\r\nspring.datasource.passwo'"
+  },
+  {
+    "name": "l\r\nspring.datasource.driver-class-n",
+    "type": "java.lang.String",
+    "description": "A description for 'l\r\nspring.datasource.driver-class-n'"
+  },
+  {
+    "name": "t\r\nspring.jpa.hibernate.ddl-a",
+    "type": "java.lang.String",
+    "description": "A description for 't\r\nspring.jpa.hibernate.ddl-a'"
+  },
+  {
+    "name": "e\r\nspring.jpa.show-",
+    "type": "java.lang.String",
+    "description": "A description for 'e\r\nspring.jpa.show-'"
+  },
+  {
+    "name": "e\r\nspring.jpa.properties.hibernate.format_",
+    "type": "java.lang.String",
+    "description": "A description for 'e\r\nspring.jpa.properties.hibernate.format_'"
+  },
+  {
+    "name": "e\r\nspring.jpa.defer-datasource-initializat",
+    "type": "java.lang.String",
+    "description": "A description for 'e\r\nspring.jpa.defer-datasource-initializat'"
+  },
+  {
+    "name": "=\r\nspring.datasource.hikari.maximum-pool-s",
+    "type": "java.lang.String",
+    "description": "A description for '=\r\nspring.datasource.hikari.maximum-pool-s'"
+  },
+  {
+    "name": "5\r\nspring.datasource.hikari.minimum-i",
+    "type": "java.lang.String",
+    "description": "A description for '5\r\nspring.datasource.hikari.minimum-i'"
+  },
+  {
+    "name": "2\r\nspring.datasource.hikari.connection-time",
+    "type": "java.lang.String",
+    "description": "A description for '2\r\nspring.datasource.hikari.connection-time'"
+  },
+  {
+    "name": "0\r\nspring.datasource.hikari.idle-time",
+    "type": "java.lang.String",
+    "description": "A description for '0\r\nspring.datasource.hikari.idle-time'"
+  },
+  {
+    "name": "0\r\nspring.datasource.hikari.max-lifet",
+    "type": "java.lang.String",
+    "description": "A description for '0\r\nspring.datasource.hikari.max-lifet'"
+  },
+  {
+    "name": "\n\r\npostgre",
+    "type": "java.lang.String",
+    "description": "A description for '\n\r\npostgre'"
+  }
+]}
