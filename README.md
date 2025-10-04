@@ -1,44 +1,244 @@
 # 📚 Sistema de Inventario - API REST con Spring Boot
 
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 20:51:11
+📅 Última actualización: 2025-10-04 21:24:19
 
-HEAD
 ## Últimos commits
-- 8bfab53 se crea la utomatizacion para que el readmi se modifique automaticamrnte (👤 Gustavo, 2025-10-04)
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 20:51:11
+📅 Última actualización: 2025-10-04 21:24:19
 
 ## Últimos commits
-- 8bfab53 se crea la utomatizacion para que el readmi se modifique automaticamrnte (👤 Gustavo, 2025-10-04)
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 20:51:11
+📅 Última actualización: 2025-10-04 21:24:19
 
 ## Últimos commits
-- 8bfab53 se crea la utomatizacion para que el readmi se modifique automaticamrnte (👤 Gustavo, 2025-10-04)
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 20:51:11
+📅 Última actualización: 2025-10-04 21:24:19
 
 ## Últimos commits
-- 8bfab53 se crea la utomatizacion para que el readmi se modifique automaticamrnte (👤 Gustavo, 2025-10-04)
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 20:51:11
+📅 Última actualización: 2025-10-04 21:24:19
 
 ## Últimos commits
-- 8bfab53 se crea la utomatizacion para que el readmi se modifique automaticamrnte (👤 Gustavo, 2025-10-04)
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 20:51:11
+📅 Última actualización: 2025-10-04 21:24:19
 
 ## Últimos commits
-- 8bfab53 se crea la utomatizacion para que el readmi se modifique automaticamrnte (👤 Gustavo, 2025-10-04)
-=======
-##Últimos commits
-- (Aquí se insertarán automáticamente los últimos commits) c715b84 (se actualiza la automatizacion del readme y se corrige error)
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:24:19
+
+## Últimos commits
+- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 
 Una API REST completa desarrollada con Spring Boot para gestionar un sistema de inventario que incluye usuarios, artículos, préstamos e historial.
