@@ -1,4 +1,15 @@
 # 📚 Sistema de Inventario - API REST con Spring Boot
+# 📚 Sistema de Inventario - API REST con Spring Boot
+
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: (pendiente de actualizar)
+
+## Últimos commits
+- (Aquí se insertarán automáticamente los últimos commits)
+<!-- AUTO-UPDATE:END -->
+
+Una API REST completa desarrollada con Spring Boot para gestionar un sistema de inventario que incluye usuarios, artículos, préstamos e historial.
+
 
 Una API REST completa desarrollada con Spring Boot para gestionar un sistema de inventario que incluye usuarios, artículos, préstamos e historial.
 
