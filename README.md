@@ -1,244 +1,1444 @@
 # 📚 Sistema de Inventario - API REST con Spring Boot
 
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 <!-- AUTO-UPDATE:START -->
-📅 Última actualización: 2025-10-04 21:24:19
+📅 Última actualización: 2025-10-04 21:32:42
 
 ## Últimos commits
-- 3d24a61 se crea nuevo readme (👤 Gustavo, 2025-10-04)
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-04 21:32:42
+
+## Últimos commits
+- 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 
 Una API REST completa desarrollada con Spring Boot para gestionar un sistema de inventario que incluye usuarios, artículos, préstamos e historial.
