@@ -36,7 +36,7 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add README.md
-          git commit -m "🔄 Actualización automática del README con fecha y últimos commits" || echo "No hay cambios que commitear"
+          git commit -m "🔄 Actualización automática del README con fecha y últimos commits" --allow-empty
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
