@@ -153,9 +153,8 @@ curl http://localhost:8080/actuator/health
 ```
 
 **Respuesta esperada:**
-```json
+json
 {"status":"UP"}
-```
 
 ### 2. Verificar endpoints principales
 
