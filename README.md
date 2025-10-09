@@ -1,5 +1,6 @@
 # 📚 Sistema de Inventario - API REST con Spring Boot
 
+<<<<<<< HEAD
 <!-- AUTO-UPDATE:START -->
 📅 Última actualización: 2025-10-04 21:32:42
 
@@ -1441,10 +1442,11 @@
 - 12241a2 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions, 2025-10-04)
 <!-- AUTO-UPDATE:END -->
 
+=======
+>>>>>>> 9519cc3a370b0baa90ad07520850b295f839e06b
 Una API REST completa desarrollada con Spring Boot para gestionar un sistema de inventario que incluye usuarios, artículos, préstamos e historial.
 
-
-Una API REST completa desarrollada con Spring Boot para gestionar un sistema de inventario que incluye usuarios, artículos, préstamos e historial.
+---
 
 ## 🚀 Características
 
@@ -1458,6 +1460,8 @@ Una API REST completa desarrollada con Spring Boot para gestionar un sistema de 
 - **Monitoreo**: Endpoints de monitoreo con Spring Boot Actuator
 - **Documentación**: Tutorial completo paso a paso
 
+---
+
 ## 📋 Requisitos Previos
 
 Antes de ejecutar el proyecto, asegúrate de tener instalado:
@@ -1467,6 +1471,8 @@ Antes de ejecutar el proyecto, asegúrate de tener instalado:
 - **PostgreSQL 12+**
 - **Git**
 
+---
+
 ## ⚙️ Configuración del Proyecto
 
 ### 1. Clonar el Repositorio
@@ -1474,13 +1480,10 @@ Antes de ejecutar el proyecto, asegúrate de tener instalado:
 ```bash
 git clone <url-del-repositorio>
 cd pi_backend2
-```
-
-### 2. Configurar la Base de Datos
-
-#### Crear la Base de Datos en PostgreSQL
-
-```sql
+2. Configurar la Base de Datos
+Crear la Base de Datos en PostgreSQL
+sql
+Copiar código
 -- Conectarse a PostgreSQL como superusuario
 psql -U postgres
 
@@ -1490,13 +1493,11 @@ CREATE DATABASE inventory_system;
 -- Crear usuario (opcional)
 CREATE USER inventory_user WITH PASSWORD 'tu_password';
 GRANT ALL PRIVILEGES ON DATABASE inventory_system TO inventory_user;
-```
+Configurar Variables de Entorno
+Crea un archivo .env en la raíz del proyecto:
 
-#### Configurar Variables de Entorno
-
-Crea un archivo `.env` en la raíz del proyecto:
-
-```env
+env
+Copiar código
 # Configuración de Base de Datos
 DB_HOST=localhost
 DB_PORT=5432
@@ -1507,124 +1508,110 @@ DB_PASSWORD=tu_password
 # Configuración de la Aplicación
 SERVER_PORT=8080
 SPRING_PROFILES_ACTIVE=dev
-```
-
-### 3. Instalar Dependencias
-
-```bash
+3. Instalar Dependencias
+bash
+Copiar código
 # Limpiar y compilar el proyecto
 ./mvnw clean compile
 
 # Instalar dependencias
 ./mvnw dependency:resolve
-```
-
-## 🏃‍♂️ Ejecutar la Aplicación
-
-### Opción 1: Usando Maven Wrapper (Recomendado)
-
-```bash
-# Ejecutar en modo desarrollo
+🏃‍♂️ Ejecutar la Aplicación
+Opción 1: Usando Maven Wrapper (Recomendado)
+bash
+Copiar código
 ./mvnw spring-boot:run
-```
-
-### Opción 2: Usando JAR compilado
-
-```bash
-# Compilar el proyecto
+Opción 2: Usando JAR compilado
+bash
+Copiar código
 ./mvnw clean package -DskipTests
-
-# Ejecutar el JAR
 java -jar target/pi_backend2-0.0.1-SNAPSHOT.jar
-```
+Opción 3: Desde el IDE
+Importar el proyecto como proyecto Maven
 
-### Opción 3: Desde el IDE
+Configurar las variables de entorno
 
-1. Importar el proyecto como proyecto Maven
-2. Configurar las variables de entorno
-3. Ejecutar la clase `PiBackend2Application.java`
+Ejecutar la clase PiBackend2Application.java
 
-## 🔍 Verificar la Instalación
-
-### 1. Verificar que la aplicación esté ejecutándose
-
-```bash
+🔍 Verificar la Instalación
+bash
+Copiar código
 curl http://localhost:8080/actuator/health
-```
+Respuesta esperada:
 
-**Respuesta esperada:**
 json
+Copiar código
 {"status":"UP"}
+📚 Endpoints Disponibles
+👥 Usuarios (/api/users)
+GET /api/users
 
-### 2. Verificar endpoints principales
+GET /api/users/{id}
 
-```bash
-# Listar usuarios
-curl http://localhost:8080/api/users
+POST /api/users
 
-# Listar artículos
-curl http://localhost:8080/api/items
+PUT /api/users/{id}
 
-# Listar préstamos
-curl http://localhost:8080/api/loans
-```
+DELETE /api/users/{id}
 
-## 📚 Endpoints Disponibles
+📦 Artículos (/api/items)
+GET /api/items
 
-### 👥 Usuarios (`/api/users`)
-- `GET /api/users` - Listar todos los usuarios
-- `GET /api/users/{id}` - Obtener usuario por ID
-- `POST /api/users` - Crear nuevo usuario
-- `PUT /api/users/{id}` - Actualizar usuario
-- `DELETE /api/users/{id}` - Eliminar usuario
+GET /api/items/{id}
 
-### 📦 Artículos (`/api/items`)
-- `GET /api/items` - Listar todos los artículos
-- `GET /api/items/{id}` - Obtener artículo por ID
-- `POST /api/items` - Crear nuevo artículo
-- `PUT /api/items/{id}` - Actualizar artículo
-- `DELETE /api/items/{id}` - Eliminar artículo
+POST /api/items
 
-### 🔄 Préstamos (`/api/loans`)
-- `GET /api/loans` - Listar todos los préstamos
-- `GET /api/loans/{id}` - Obtener préstamo por ID
-- `POST /api/loans` - Crear nuevo préstamo
-- `PUT /api/loans/{id}` - Actualizar préstamo
-- `DELETE /api/loans/{id}` - Eliminar préstamo
+PUT /api/items/{id}
 
-### 📊 Monitoreo (`/actuator`)
-- `GET /actuator/health` - Estado de la aplicación
-- `GET /actuator/info` - Información de la aplicación
-- `GET /actuator/metrics` - Métricas de la aplicación
+DELETE /api/items/{id}
 
-### 📖 Documentación API (`/swagger-ui`)
-- `GET /swagger-ui.html` - Interfaz interactiva de Swagger UI
-- `GET /v3/api-docs` - Especificación OpenAPI en formato JSON
-- `GET /v3/api-docs.yaml` - Especificación OpenAPI en formato YAML
+🔄 Préstamos (/api/loans)
+GET /api/loans
 
-## 🧪 Probar la API
+GET /api/loans/{id}
 
-### 🔐 Autenticación
+POST /api/loans
 
+PUT /api/loans/{id}
+
+DELETE /api/loans/{id}
+
+📊 Monitoreo (/actuator)
+GET /actuator/health
+
+GET /actuator/info
+
+GET /actuator/metrics
+
+📖 Documentación API (/swagger-ui)
+GET /swagger-ui.html
+
+GET /v3/api-docs
+
+GET /v3/api-docs.yaml
+
+🧪 Probar la API
+🔐 Autenticación
 La API utiliza autenticación HTTP Basic. Credenciales de prueba:
 
-- **Admin**: `admin` / `admin123` (acceso completo)
-- **User**: `user` / `user123` (acceso limitado)
+Admin: admin / admin123
 
-### 📖 Swagger UI (Recomendado)
+User: user / user123
 
-La forma más fácil de probar la API es usando Swagger UI:
+📖 Swagger UI
+Inicia la aplicación: ./mvnw spring-boot:run
 
-1. Inicia la aplicación: `mvnw.cmd spring-boot:run`
-2. Abre tu navegador en: `http://localhost:8080/swagger-ui.html`
-3. Haz clic en **"Authorize"** e ingresa las credenciales
-4. Explora y prueba todos los endpoints interactivamente
+Navega a: http://localhost:8080/swagger-ui.html
 
-### 🔧 Usando cURL
+Autorízate con las credenciales
 
-#### Crear un Usuario (requiere rol ADMIN)
+Prueba los endpoints interactivos
 
-```bash
+🔧 Usando cURL
+Ejemplo para crear un usuario (requiere rol ADMIN):
+
+bash
+Copiar código
 curl -X POST http://localhost:8080/api/users \
   -H "Content-Type: application/json" \
   -H "Authorization: Basic YWRtaW46YWRtaW4xMjM=" \
@@ -1634,115 +1621,7054 @@ curl -X POST http://localhost:8080/api/users \
     "password": "password123",
     "role": "USER"
   }'
-```
+📖 Documentación Completa
+Consulta la carpeta doc/:
 
-#### Crear un Artículo (requiere autenticación)
+Tutorial Completo
 
-```bash
-curl -X POST http://localhost:8080/api/items \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Basic dXNlcjp1c2VyMTIz" \
-  -d '{
-    "name": "Laptop Dell",
-    "description": "Laptop para desarrollo",
-    "category": "ELECTRONICS",
-    "quantity": 5,
-    "available": true
-  }'
-```
+Configuración inicial
 
-#### Crear un Préstamo (requiere autenticación)
+Base de Datos y JPA
 
-```bash
-curl -X POST http://localhost:8080/api/loans \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Basic dXNlcjp1c2VyMTIz" \
-  -d '{
-    "userId": 1,
-    "itemId": 1,
-    "quantity": 1,
-    "loanDate": "2024-01-15",
-    "expectedReturnDate": "2024-01-30"
-  }'
-```
+Entidades y Modelos
 
-## 🛠️ Scripts de Utilidad
+DTOs y Mapeo
 
-### Script de Pruebas (PowerShell)
+Repositorios
 
-Ejecuta el script incluido para probar todos los endpoints:
+Servicios
 
-```powershell
-.\test-endpoints.ps1
-```
+Controladores REST
 
-## 📖 Documentación Completa
+Monitoreo con Actuator
 
-Para aprender cómo se construyó este proyecto paso a paso, consulta la documentación completa en la carpeta `doc/`:
+Validaciones y Errores
 
-- [**Tutorial Completo**](doc/README.md) - Guía paso a paso
-- [Configuración Inicial](doc/01-configuracion-inicial.md)
-- [Base de Datos y JPA](doc/02-configuracion-database.md)
-- [Entidades y Modelos](doc/03-entidades-modelos.md)
-- [DTOs y Mapeo](doc/04-dtos-mapeo.md)
-- [Repositorios](doc/05-repositorios-acceso-datos.md)
-- [Servicios](doc/06-servicios-logica-negocio.md)
-- [Controladores REST](doc/07-controladores-rest.md)
-- [Monitoreo con Actuator](doc/08-actuator-monitoreo.md)
-- [Validaciones y Errores](doc/09-validacion-manejo-errores.md)
-- [Spring Security](doc/10-spring-security-implementacion.md)
-- [OpenAPI/Swagger](doc/11-openapi-swagger-documentacion.md)
+Seguridad con Spring Security
 
-## 🐛 Solución de Problemas
+OpenAPI/Swagger
 
-### Error de Conexión a Base de Datos
+🐛 Solución de Problemas
+Error de conexión a DB → verifica PostgreSQL y credenciales
 
-```
-Caused by: org.postgresql.util.PSQLException: Connection refused
-```
+Puerto 8080 ocupado → cambia SERVER_PORT en .env
 
-**Solución:**
-1. Verificar que PostgreSQL esté ejecutándose
-2. Comprobar las credenciales en el archivo `.env`
-3. Verificar que la base de datos existe
+Error de compilación → asegúrate de usar Java 17+ y ejecuta ./mvnw clean compile
 
-### Puerto ya en uso
+🤝 Contribuir
+Haz un fork
 
-```
-Port 8080 was already in use
-```
+Crea una rama (git checkout -b feature/nueva-funcionalidad)
 
-**Solución:**
-1. Cambiar el puerto en `.env`: `SERVER_PORT=8081`
-2. O terminar el proceso que usa el puerto 8080
+Commit (git commit -am 'Agregar nueva funcionalidad')
 
-### Error de compilación
+Push (git push origin feature/nueva-funcionalidad)
 
-```
-Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin
-```
+Abre un Pull Request
 
-**Solución:**
-1. Verificar que tienes Java 17+: `java -version`
-2. Limpiar y recompilar: `./mvnw clean compile`
+📄 Licencia
+Este proyecto está bajo la Licencia MIT.
 
-## 🤝 Contribuir
+👨‍💻 Autor
+Desarrollado por Gustavo (Tavo) como proyecto educativo para aprender Spring Boot y desarrollo de APIs REST.
 
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit tus cambios (`git commit -am 'Agregar nueva funcionalidad'`)
-4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Abre un Pull Request
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
 
-## 📄 Licencia
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
 
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
 
-## 👨‍💻 Autor
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
 
-Desarrollado como proyecto educativo para aprender Spring Boot y desarrollo de APIs REST.
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
 
----
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
 
-**¿Necesitas ayuda?** Consulta la [documentación completa](doc/README.md) o abre un issue en el repositorio.
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
 
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
+<!-- AUTO-UPDATE:START -->
+📅 Última actualización: 2025-10-09 23:45:53
+
+## Últimos commits
+- 3c5604d 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-09)
+- 9742734 Merge branch 'helpers' of https://github.com/GustavoMontoyarx115/pi_backend2_ into helpers (👤 Gustavo, 2025-10-09)
+- 4734ef3 se corrige conexiones (👤 Gustavo, 2025-10-09)
+- b380930 🔄 Actualización automática del README con fecha y últimos commits (👤 github-actions[bot], 2025-10-04)
+- e6387ac se actualiza la automatizacion para que los cambios se hacen en el readme (👤 Gustavo, 2025-10-04)
+<!-- AUTO-UPDATE:END -->
