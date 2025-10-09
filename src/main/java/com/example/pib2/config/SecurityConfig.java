@@ -38,10 +38,11 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable()) // Desactiva CSRF para facilitar pruebas con Postman/Frontend
+            .csrf(csrf -> csrf.disable()) // Desactiva CSRF (necesario para H2 y pruebas)
             .authorizeHttpRequests(auth -> auth
-                // Permitir Swagger y la documentación sin autenticación
+                // Permitir acceso libre a H2 Console y Swagger
                 .requestMatchers(
+                    "/h2-console/**",
                     "/swagger-ui/**",
                     "/v3/api-docs/**",
                     "/api-docs/**"
@@ -49,7 +50,9 @@ public class SecurityConfig {
                 // Todo lo demás requiere autenticación
                 .anyRequest().authenticated()
             )
-            // Autenticación básica (usuario/contraseña en encabezado)
+            // Permitir que H2 Console funcione correctamente (usa iframes)
+            .headers(headers -> headers.frameOptions(frame -> frame.disable()))
+            // Autenticación básica HTTP
             .httpBasic(Customizer.withDefaults());
 
         return http.build();
