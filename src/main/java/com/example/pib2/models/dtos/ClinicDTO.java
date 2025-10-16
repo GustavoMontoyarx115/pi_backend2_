@@ -53,9 +53,9 @@ public class ClinicDTO {
                 .whatsapp(clinic.getWhatsapp())
                 .tiktok(clinic.getTiktok())
                 .appointments(clinic.getAppointments() != null
-                        ? clinic.getAppointments().stream()
-                            .map(AppointmentDTO::fromEntityBasic)
-                            .collect(Collectors.toList())
+                ? clinic.getAppointments().stream()
+                    .map(AppointmentDTO::fromEntityBasic)
+                        .collect(Collectors.toList())
                         : null)
                 .build();
     }
