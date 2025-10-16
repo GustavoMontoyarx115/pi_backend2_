@@ -1,10 +1,15 @@
 package com.example.pib2.models.dtos;
 
-import lombok.*;
-import com.example.pib2.models.entities.Clinic;
 import java.util.List;
 import java.util.stream.Collectors;
-import com.example.pib2.models.entities.Appointment;
+
+import com.example.pib2.models.entities.Clinic;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * DTO (Data Transfer Object) para la entidad Clinic.
@@ -30,7 +35,7 @@ public class ClinicDTO {
     private String whatsapp;
     private String tiktok;
 
-    // Lista de citas asociadas (si deseas mostrar información básica de las citas)
+    // Lista de citas asociadas (información básica)
     private List<AppointmentDTO> appointments;
 
     /**
@@ -53,9 +58,9 @@ public class ClinicDTO {
                 .whatsapp(clinic.getWhatsapp())
                 .tiktok(clinic.getTiktok())
                 .appointments(clinic.getAppointments() != null
-                ? clinic.getAppointments().stream()
-                    .map(AppointmentDTO::fromEntityBasic)
-                        .collect(Collectors.toList())
+                        ? clinic.getAppointments().stream()
+                            .map(AppointmentDTO::fromEntityBasic)
+                            .collect(Collectors.toList())
                         : null)
                 .build();
     }
@@ -81,9 +86,9 @@ public class ClinicDTO {
         // Evita recursión infinita al asignar las citas
         if (this.appointments != null) {
             clinic.setAppointments(
-                this.appointments.stream()
-                    .map(dto -> dto.toEntityBasic(clinic))
-                    .collect(Collectors.toList())
+                    this.appointments.stream()
+                            .map(dto -> dto.toEntityBasic(clinic))
+                            .collect(Collectors.toList())
             );
         }
 
