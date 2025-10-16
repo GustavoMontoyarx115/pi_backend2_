@@ -1,14 +1,22 @@
 package com.example.pib2.models.dtos;
 
 
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import com.example.pib2.models.entities.Appointment;
 import com.example.pib2.models.entities.Clinic;
-import java.time.LocalDateTime;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 /**
  * DTO (Data Transfer Object) para la entidad Appointment.
- * Permite la transferencia de información sin exponer directamente la entidad JPA.
+ * Permite transferir los datos sin exponer directamente la entidad JPA.
  */
 @Getter
 @Setter
@@ -18,43 +26,39 @@ import java.time.LocalDateTime;
 public class AppointmentDTO {
 
     private Long id;
-    private String patientName;
-    private String doctorName;
-    private LocalDateTime appointmentDate;
-    private String status;
-    private Long clinicId;      // Relación con Clinic
-    private String clinicName;  // Información opcional para mostrar
+    private String nombre;
+    private String correo;
+    private LocalDate fecha;
+    private LocalTime hora;
+    private String medico;
+    private Long clinicId;      // Relación con la clínica
+    private String clinicName;  // Nombre de la clínica (opcional para mostrar)
 
     /**
-     * Convierte una entidad Appointment a un objeto AppointmentDTO.
+     * Convierte una entidad Appointment a un DTO.
      */
     public static AppointmentDTO fromEntity(Appointment appointment) {
         if (appointment == null) {
             return null;
         }
-        return AppointmentDTO.builder()
-                .id(appointment.getId())
-                .patientName(appointment.getPatientName())
-                .doctorName(appointment.getDoctorName())
-                .appointmentDate(appointment.getAppointmentDate())
-                .status(appointment.getStatus())
-                .clinicId(appointment.getClinic() != null ? appointment.getClinic().getId() : null)
-                .clinicName(appointment.getClinic() != null ? appointment.getClinic().getName() : null)
-                .build();
-    }
 
-    /**
-     * Versión básica para evitar ciclos al convertir desde ClinicDTO.
-     */
-    public static AppointmentDTO fromEntityBasic(Appointment appointment) {
-        if (appointment == null) {
-            return null;
-        }
         return AppointmentDTO.builder()
                 .id(appointment.getId())
-                .patientName(appointment.getPatientName())
-                .appointmentDate(appointment.getAppointmentDate())
-                .status(appointment.getStatus())
+                .nombre(appointment.getNombre())
+                .correo(appointment.getCorreo())
+                .fecha(appointment.getFecha())
+                .hora(appointment.getHora())
+                .medico(appointment.getMedico())
+                .clinicId(
+                        appointment.getClinic() != null
+                                ? appointment.getClinic().getId()
+                                : null
+                )
+                .clinicName(
+                        appointment.getClinic() != null
+                                ? appointment.getClinic().getName()
+                                : null
+                )
                 .build();
     }
 
@@ -62,26 +66,15 @@ public class AppointmentDTO {
      * Convierte este DTO en una entidad Appointment.
      */
     public Appointment toEntity(Clinic clinic) {
-        return Appointment.builder()
-                .id(this.id)
-                .patientName(this.patientName)
-                .doctorName(this.doctorName)
-                .appointmentDate(this.appointmentDate)
-                .status(this.status)
-                .clinic(clinic)
-                .build();
-    }
-
-    /**
-     * Conversión básica usada cuando se crea desde ClinicDTO.
-     */
-    public Appointment toEntityBasic(Clinic clinic) {
-        return Appointment.builder()
-                .id(this.id)
-                .patientName(this.patientName)
-                .appointmentDate(this.appointmentDate)
-                .status(this.status)
-                .clinic(clinic)
-                .build();
+        Appointment appointment = new Appointment();
+        appointment.setId(this.id);
+        appointment.setNombre(this.nombre);
+        appointment.setCorreo(this.correo);
+        appointment.setFecha(this.fecha);
+        appointment.setHora(this.hora);
+        appointment.setMedico(this.medico);
+        appointment.setClinic(clinic);
+        return appointment;
     }
 }
+

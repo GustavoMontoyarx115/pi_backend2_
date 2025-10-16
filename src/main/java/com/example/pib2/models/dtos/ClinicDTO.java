@@ -13,7 +13,7 @@ import lombok.Setter;
 
 /**
  * DTO (Data Transfer Object) para la entidad Clinic.
- * Transfiere los datos entre el backend y el frontend,
+ * Se utiliza para transferir datos entre el backend y el frontend,
  * evitando exponer directamente la entidad JPA.
  */
 @Getter
@@ -35,16 +35,18 @@ public class ClinicDTO {
     private String whatsapp;
     private String tiktok;
 
-    // Lista de citas asociadas (información básica)
+    // Lista de citas asociadas (solo datos básicos para evitar recursividad)
     private List<AppointmentDTO> appointments;
 
     /**
      * Convierte una entidad Clinic a un objeto ClinicDTO.
+     * Incluye información básica de las citas asociadas.
      */
     public static ClinicDTO fromEntity(Clinic clinic) {
         if (clinic == null) {
             return null;
         }
+
         return ClinicDTO.builder()
                 .id(clinic.getId())
                 .name(clinic.getName())
@@ -57,16 +59,29 @@ public class ClinicDTO {
                 .instagram(clinic.getInstagram())
                 .whatsapp(clinic.getWhatsapp())
                 .tiktok(clinic.getTiktok())
-                .appointments(clinic.getAppointments() != null
-                        ? clinic.getAppointments().stream()
-                            .map(AppointmentDTO::fromEntityBasic)
-                            .collect(Collectors.toList())
-                        : null)
+                .appointments(
+                        clinic.getAppointments() != null
+                                ? clinic.getAppointments().stream()
+                                        // Evita referencias circulares: se usa una conversión básica
+                                        .map(appointment -> AppointmentDTO.builder()
+                                                .id(appointment.getId())
+                                                .nombre(appointment.getNombre())
+                                                .correo(appointment.getCorreo())
+                                                .fecha(appointment.getFecha())
+                                                .hora(appointment.getHora())
+                                                .medico(appointment.getMedico())
+                                                .clinicId(clinic.getId())
+                                                .clinicName(clinic.getName())
+                                                .build())
+                                        .collect(Collectors.toList())
+                                : null
+                )
                 .build();
     }
 
     /**
      * Convierte este DTO en una entidad Clinic.
+     * Si incluye citas, también las convierte.
      */
     public Clinic toEntity() {
         Clinic clinic = Clinic.builder()
@@ -83,11 +98,11 @@ public class ClinicDTO {
                 .tiktok(this.tiktok)
                 .build();
 
-        // Evita recursión infinita al asignar las citas
+        // Evita recursión infinita al asignar citas
         if (this.appointments != null) {
             clinic.setAppointments(
                     this.appointments.stream()
-                            .map(dto -> dto.toEntityBasic(clinic))
+                            .map(dto -> dto.toEntity(clinic))
                             .collect(Collectors.toList())
             );
         }
