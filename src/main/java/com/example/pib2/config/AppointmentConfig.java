@@ -25,50 +25,61 @@ public class AppointmentConfig {
             ClinicRepository clinicRepository
     ) {
         return args -> {
+            // ⚠️ Solo cargar datos si no existen citas previas
             if (appointmentRepository.count() == 0) {
-                // ✅ Buscar si ya existe el usuario por email
-                Optional<User> existingUser = Optional.ofNullable(userRepository.findByEmail("juan@example.com"));
+
+                System.out.println("⏳ Iniciando carga de datos iniciales...");
+
+                // ✅ Verificar o crear usuario base
+                Optional<User> existingUser = Optional.empty();
 
                 User user = existingUser.orElseGet(() -> {
                     User nuevo = new User(
                             "Juan Pérez",
                             "juan@example.com",
-                            "123456",
+                            "123456", // ⚠️ En producción, usa contraseñas encriptadas
                             "CC",
                             "123456789",
                             Rol.PACIENTE
                     );
+                    System.out.println("👤 Usuario creado: " + nuevo.getEmail());
                     return userRepository.save(nuevo);
                 });
 
-                // ✅ Crear clínica de prueba
-                Clinic clinic = Clinic.builder()
-                        .name("Clínica Central")
-                        .description("Clínica especializada en dermatología")
-                        .address("Calle 123 #45-67")
-                        .phone("3201234567")
-                        .email("contacto@clinicacentral.com")
-                        .facebook("https://facebook.com/clinicacentral")
-                        .instagram("https://instagram.com/clinicacentral")
-                        .whatsapp("https://wa.me/3201234567")
-                        .tiktok("https://tiktok.com/@clinicacentral")
-                        .build();
-                clinicRepository.save(clinic);
+                // ✅ Crear clínica base si no existe
+                Clinic clinic = clinicRepository.findAll().stream()
+                        .findFirst()
+                        .orElseGet(() -> {
+                            Clinic nuevaClinica = Clinic.builder()
+                                    .name("Clínica Central")
+                                    .description("Clínica especializada en dermatología")
+                                    .address("Calle 123 #45-67")
+                                    .phone("3201234567")
+                                    .email("contacto@clinicacentral.com")
+                                    .facebook("https://facebook.com/clinicacentral")
+                                    .instagram("https://instagram.com/clinicacentral")
+                                    .whatsapp("https://wa.me/3201234567")
+                                    .tiktok("https://tiktok.com/@clinicacentral")
+                                    .build();
+                            System.out.println("🏥 Clínica creada: " + nuevaClinica.getName());
+                            return clinicRepository.save(nuevaClinica);
+                        });
 
-          
- Appointment cita = new Appointment();
-                cita.setNombre("Cita inicial");
+                // ✅ Crear cita base
+                Appointment cita = new Appointment();
+                cita.setNombre("Cita inicial de revisión");
                 cita.setMedico("Dra. Martínez");
                 cita.setFecha(LocalDate.of(2025, 9, 20));
                 cita.setHora(LocalTime.of(10, 0));
-                cita.setUser(user);      // usuario existente
-                cita.setClinic(clinic);  // clínica existente
-                cita.setCorreo("correo@ejemplo.com"); // ✅ ESTE ES EL NUEVO CAMPO OBLIGATORIO
+                cita.setCorreo("correo@ejemplo.com");
+                cita.setUser(user);
+                cita.setClinic(clinic);
 
-                    appointmentRepository.save(cita);
+                appointmentRepository.save(cita);
 
-
-                System.out.println("✅ Datos iniciales cargados en Appointment");
+                System.out.println("✅ Datos iniciales cargados correctamente en Appointment");
+            } else {
+                System.out.println("⚙️ Los datos ya existen. No se cargaron registros iniciales.");
             }
         };
     }
