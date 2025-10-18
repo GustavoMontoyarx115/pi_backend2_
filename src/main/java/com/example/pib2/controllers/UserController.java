@@ -6,15 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.pib2.models.dtos.UserDTO;
 import com.example.pib2.models.entities.User;
@@ -27,6 +19,25 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+    // ✅ LOGIN (autenticación segura)
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody UserDTO userDTO) {
+        Optional<User> optionalUser = userRepository.findByEmail(userDTO.getEmail());
+
+        if (optionalUser.isEmpty()) {
+            return ResponseEntity.status(404).body("❌ Usuario no encontrado");
+        }
+
+        User user = optionalUser.get();
+
+        if (!user.getPassword().equals(userDTO.getPassword())) {
+            return ResponseEntity.status(401).body("❌ Contraseña incorrecta");
+        }
+
+        // 🔐 Aquí podrías generar un token JWT si luego implementas autenticación
+        return ResponseEntity.ok(new UserDTO(user));
+    }
 
     // ✅ Listar todos los usuarios (usa DTO)
     @GetMapping
@@ -48,7 +59,6 @@ public class UserController {
     // ✅ Crear un nuevo usuario
     @PostMapping
     public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO) {
-        // Convierte el DTO en entidad
         User user = new User(
                 userDTO.getNombre(),
                 userDTO.getEmail(),
