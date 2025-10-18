@@ -12,18 +12,64 @@ import com.example.pib2.models.dtos.UserDTO;
 import com.example.pib2.models.entities.User;
 import com.example.pib2.repositories.UserRepository;
 
+// ✅ DTOs para login y registro
+class LoginRequest {
+    private String email;
+    private String password;
+
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+}
+
+class RegisterRequest {
+    private String nombre;
+    private String email;
+    private String password;
+    private String tipoDocumento;
+    private String numeroDocumento;
+    private User.Rol rol;
+
+    public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+
+    public String getTipoDocumento() { return tipoDocumento; }
+    public void setTipoDocumento(String tipoDocumento) { this.tipoDocumento = tipoDocumento; }
+
+    public String getNumeroDocumento() { return numeroDocumento; }
+    public void setNumeroDocumento(String numeroDocumento) { this.numeroDocumento = numeroDocumento; }
+
+    public User.Rol getRol() { return rol; }
+    public void setRol(User.Rol rol) { this.rol = rol; }
+}
+
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins = "*") // 🔓 Permite peticiones desde tu frontend (Next.js)
+@CrossOrigin(origins = "*") // 🔓 Permite peticiones desde el frontend
 public class UserController {
 
     @Autowired
     private UserRepository userRepository;
 
-    // ✅ LOGIN (autenticación segura)
+    // ✅ LOGIN
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody UserDTO userDTO) {
-        Optional<User> optionalUser = userRepository.findByEmail(userDTO.getEmail());
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
+        Optional<User> optionalUser = userRepository.findByEmail(request.getEmail());
 
         if (optionalUser.isEmpty()) {
             return ResponseEntity.status(404).body("❌ Usuario no encontrado");
@@ -31,15 +77,35 @@ public class UserController {
 
         User user = optionalUser.get();
 
-        if (!user.getPassword().equals(userDTO.getPassword())) {
+        if (!user.getPassword().equals(request.getPassword())) {
             return ResponseEntity.status(401).body("❌ Contraseña incorrecta");
         }
 
-        // 🔐 Aquí podrías generar un token JWT si luego implementas autenticación
+        // 🔐 Devuelve la información segura del usuario (sin contraseña)
         return ResponseEntity.ok(new UserDTO(user));
     }
 
-    // ✅ Listar todos los usuarios (usa DTO)
+    // ✅ REGISTER (crear nuevo usuario)
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
+        if (userRepository.findByEmail(request.getEmail()).isPresent()) {
+            return ResponseEntity.badRequest().body("⚠️ Ya existe un usuario con ese email");
+        }
+
+        User newUser = new User(
+                request.getNombre(),
+                request.getEmail(),
+                request.getPassword(),
+                request.getTipoDocumento(),
+                request.getNumeroDocumento(),
+                request.getRol()
+        );
+
+        userRepository.save(newUser);
+        return ResponseEntity.ok(new UserDTO(newUser));
+    }
+
+    // ✅ Listar todos los usuarios
     @GetMapping
     public List<UserDTO> getAllUsers() {
         return userRepository.findAll()
@@ -56,34 +122,19 @@ public class UserController {
                    .orElse(ResponseEntity.notFound().build());
     }
 
-    // ✅ Crear un nuevo usuario
-    @PostMapping
-    public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO) {
-        User user = new User(
-                userDTO.getNombre(),
-                userDTO.getEmail(),
-                userDTO.getPassword(),
-                userDTO.getTipoDocumento(),
-                userDTO.getNumeroDocumento(),
-                userDTO.getRol()
-        );
-        User savedUser = userRepository.save(user);
-        return ResponseEntity.ok(new UserDTO(savedUser));
-    }
-
     // ✅ Actualizar usuario
     @PutMapping("/{id}")
-    public ResponseEntity<UserDTO> updateUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {
+    public ResponseEntity<UserDTO> updateUser(@PathVariable Long id, @RequestBody RegisterRequest request) {
         return userRepository.findById(id)
                 .map(user -> {
-                    user.setNombre(userDTO.getNombre());
-                    user.setEmail(userDTO.getEmail());
-                    user.setPassword(userDTO.getPassword());
-                    user.setTipoDocumento(userDTO.getTipoDocumento());
-                    user.setNumeroDocumento(userDTO.getNumeroDocumento());
-                    user.setRol(userDTO.getRol());
-                    User updatedUser = userRepository.save(user);
-                    return ResponseEntity.ok(new UserDTO(updatedUser));
+                    user.setNombre(request.getNombre());
+                    user.setEmail(request.getEmail());
+                    user.setPassword(request.getPassword());
+                    user.setTipoDocumento(request.getTipoDocumento());
+                    user.setNumeroDocumento(request.getNumeroDocumento());
+                    user.setRol(request.getRol());
+                    userRepository.save(user);
+                    return ResponseEntity.ok(new UserDTO(user));
                 })
                 .orElse(ResponseEntity.notFound().build());
     }

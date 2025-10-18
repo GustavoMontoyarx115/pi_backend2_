@@ -1,6 +1,5 @@
 package com.example.pib2.models.dtos;
 
-
 import com.example.pib2.models.entities.User;
 
 public class UserDTO {
@@ -76,9 +75,5 @@ public class UserDTO {
     }
     public void setRol(User.Rol rol) {
         this.rol = rol;
-    }
-
-    public String getPassword() {
-        throw new UnsupportedOperationException("Unimplemented method 'getPassword'");
     }
 }
