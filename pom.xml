@@ -8,7 +8,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.5</version>
+        <version>3.3.5</version> <!-- ✅ Versión estable -->
         <relativePath/>
     </parent>
 
@@ -20,6 +20,7 @@
 
     <properties>
         <java.version>21</java.version>
+        <lombok.version>1.18.32</lombok.version>
         <spring-boot.build-image.imageName>pib2-api</spring-boot.build-image.imageName>
     </properties>
 
@@ -92,6 +93,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
             <optional>true</optional>
         </dependency>
 
@@ -116,6 +118,7 @@
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
@@ -125,6 +128,13 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal> <!-- ✅ Empaqueta automáticamente -->
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
                     <image>
                         <name>${spring-boot.build-image.imageName}</name>
