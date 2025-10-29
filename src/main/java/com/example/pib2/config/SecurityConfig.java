@@ -13,7 +13,8 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
-    // 🔹 Usuarios en memoria (para pruebas o entorno simple)
+    // ...existing code...
+    // Usuarios en memoria (para pruebas o entorno simple)
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails admin = User.withUsername("admin")
@@ -34,27 +35,29 @@ public class SecurityConfig {
         return new InMemoryUserDetailsManager(admin, user, gustavo);
     }
 
-    // 🔹 Configuración HTTP básica
+    // Configuración HTTP básica con CORS habilitado
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable()) // Desactiva CSRF (necesario para H2 y pruebas)
+            .cors(Customizer.withDefaults()) // habilita CORS usando la configuración global de CorsConfig
+            .csrf(csrf -> csrf.disable()) // desactiva CSRF (para pruebas y H2)
             .authorizeHttpRequests(auth -> auth
-                // Permitir acceso libre a H2 Console y Swagger
+                // acceso libre a H2 Console y Swagger
                 .requestMatchers(
                     "/h2-console/**",
                     "/swagger-ui/**",
                     "/v3/api-docs/**",
                     "/api-docs/**"
                 ).permitAll()
-                // Todo lo demás requiere autenticación
+                // todo lo demás requiere autenticación
                 .anyRequest().authenticated()
             )
-            // Permitir que H2 Console funcione correctamente (usa iframes)
+            // permitir iframes para H2 Console
             .headers(headers -> headers.frameOptions(frame -> frame.disable()))
-            // Autenticación básica HTTP
+            // autenticación básica HTTP
             .httpBasic(Customizer.withDefaults());
 
         return http.build();
     }
+    // ...existing code...
 }
