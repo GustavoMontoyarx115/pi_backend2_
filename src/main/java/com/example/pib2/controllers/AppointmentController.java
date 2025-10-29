@@ -1,6 +1,5 @@
 package com.example.pib2.controllers;
 
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,7 +15,10 @@ import com.example.pib2.servicios.ClinicService;
 
 @RestController
 @RequestMapping("/api/appointments")
-@CrossOrigin(origins = "http://localhost:3000") // Permite peticiones desde el frontend
+@CrossOrigin(origins = {
+    "http://localhost:3000",          // Permite peticiones desde entorno local
+    "https://pi-web2.onrender.com"    // Permite peticiones desde el frontend en Render
+})
 public class AppointmentController {
 
     @Autowired
@@ -68,7 +70,10 @@ public class AppointmentController {
      * 🔹 PUT: Actualiza una cita existente.
      */
     @PutMapping("/{id}")
-    public ResponseEntity<AppointmentDTO> updateAppointment(@PathVariable Long id, @RequestBody AppointmentDTO dto) {
+    public ResponseEntity<AppointmentDTO> updateAppointment(
+            @PathVariable Long id,
+            @RequestBody AppointmentDTO dto) {
+
         Appointment existing = appointmentService.findById(id);
         if (existing == null) {
             return ResponseEntity.notFound().build();
