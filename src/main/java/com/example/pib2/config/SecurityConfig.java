@@ -9,11 +9,16 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+
+import java.util.List;
 
 @Configuration
 public class SecurityConfig {
 
-    // Usuarios temporales para pruebas
+    // ✅ Usuarios de prueba
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails admin = User.withUsername("admin")
@@ -34,15 +39,15 @@ public class SecurityConfig {
         return new InMemoryUserDetailsManager(admin, user, gustavo);
     }
 
-    // Configuración principal de seguridad HTTP
+    // ✅ Configuración de seguridad HTTP
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            // 🔹 CORS habilitado (usa CorsConfig.java)
+            // 🔹 CORS antes de todo
             .cors(Customizer.withDefaults())
-            // 🔹 Desactivar CSRF para APIs REST
+            // 🔹 Desactivar CSRF (para APIs REST)
             .csrf(csrf -> csrf.disable())
-            // 🔹 Control de acceso
+            // 🔹 Autorizar rutas
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
                     "/api/**",
@@ -52,11 +57,34 @@ public class SecurityConfig {
                 ).permitAll()
                 .anyRequest().authenticated()
             )
-            // 🔹 Permitir iframes (H2 Console)
+            // 🔹 Permitir iframes (H2)
             .headers(headers -> headers.frameOptions(frame -> frame.disable()))
-            // 🔹 Autenticación básica
+            // 🔹 Autenticación básica HTTP
             .httpBasic(Customizer.withDefaults());
 
         return http.build();
+    }
+
+    // ✅ CORS global y garantizado (Render + localhost)
+    @Bean
+    public CorsFilter corsFilter() {
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true);
+
+        // 🔹 Frontend local y desplegado
+        config.setAllowedOrigins(List.of(
+                "http://localhost:3000",
+                "https://pi-web2.onrender.com"
+        ));
+
+        // 🔹 Métodos y cabeceras permitidos
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
+        config.setExposedHeaders(List.of("Authorization", "Content-Type"));
+
+        // 🔹 Registrar el filtro global
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", config);
+        return new CorsFilter(source);
     }
 }
