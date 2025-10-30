@@ -18,7 +18,6 @@ import java.util.List;
 @Configuration
 public class SecurityConfig {
 
-    // ✅ Usuarios de prueba
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails admin = User.withUsername("admin")
@@ -39,15 +38,12 @@ public class SecurityConfig {
         return new InMemoryUserDetailsManager(admin, user, gustavo);
     }
 
-    // ✅ Configuración principal de seguridad
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            // 🔹 Habilitar CORS antes de los filtros de seguridad
+            // CORS debe ir antes de CSRF
             .cors(Customizer.withDefaults())
-            // 🔹 Desactivar CSRF (recomendado para APIs REST)
             .csrf(csrf -> csrf.disable())
-            // 🔹 Autorizar rutas
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
                     "/api/**",
@@ -57,41 +53,27 @@ public class SecurityConfig {
                 ).permitAll()
                 .anyRequest().authenticated()
             )
-            // 🔹 Permitir iframes (para consola H2)
             .headers(headers -> headers.frameOptions(frame -> frame.disable()))
-            // 🔹 Autenticación básica HTTP
             .httpBasic(Customizer.withDefaults());
 
         return http.build();
     }
 
-    // ✅ Configuración global de CORS
+    // ✅ Configuración de CORS universal para Render + localhost
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
 
-        // 🔹 Permitir orígenes (frontend local y Render)
-        config.setAllowedOrigins(List.of(
-                "http://localhost:3000",
-                "https://pi-web2.onrender.com"
-        ));
+        // 🔥 Durante pruebas, permitimos todos los orígenes
+        config.addAllowedOriginPattern("*");
 
-        // 🔹 Métodos permitidos
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-
-        // 🔹 Cabeceras permitidas
-        config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
-
-        // 🔹 Cabeceras expuestas (para respuesta)
+        config.setAllowedHeaders(List.of("*"));
         config.setExposedHeaders(List.of("Authorization", "Content-Type"));
-
-        // 🔹 Permitir credenciales (cookies, tokens)
         config.setAllowCredentials(true);
 
-        // Registrar configuración para todas las rutas
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
-
         return source;
     }
 }
