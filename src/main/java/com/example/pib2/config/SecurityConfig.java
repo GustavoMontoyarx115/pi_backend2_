@@ -4,10 +4,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -19,31 +15,12 @@ import java.util.List;
 public class SecurityConfig {
 
     @Bean
-    public UserDetailsService userDetailsService() {
-        UserDetails admin = User.withUsername("admin")
-                .password("{noop}admin123")
-                .roles("ADMIN")
-                .build();
-
-        UserDetails user = User.withUsername("user")
-                .password("{noop}user123")
-                .roles("USER")
-                .build();
-
-        UserDetails gustavo = User.withUsername("gustavo")
-                .password("{noop}tavo123")
-                .roles("ADMIN")
-                .build();
-
-        return new InMemoryUserDetailsManager(admin, user, gustavo);
-    }
-
-    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            // CORS debe ir antes de CSRF
+            // 🔹 Habilitamos CORS y desactivamos CSRF (necesario para APIs REST)
             .cors(Customizer.withDefaults())
             .csrf(csrf -> csrf.disable())
+            // 🔹 Permitimos todas las rutas públicas en la API
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
                     "/api/**",
@@ -51,22 +28,24 @@ public class SecurityConfig {
                     "/v3/api-docs/**",
                     "/h2-console/**"
                 ).permitAll()
-                .anyRequest().authenticated()
+                .anyRequest().permitAll() // Permite todo el resto también
             )
-            .headers(headers -> headers.frameOptions(frame -> frame.disable()))
-            .httpBasic(Customizer.withDefaults());
+            // 🔹 Desactivamos cualquier autenticación (para evitar 401)
+            .httpBasic(httpBasic -> httpBasic.disable())
+            .formLogin(form -> form.disable())
+            // 🔹 Habilitamos acceso al H2-console y a Swagger sin bloqueo
+            .headers(headers -> headers.frameOptions(frame -> frame.disable()));
 
         return http.build();
     }
 
-    // ✅ Configuración de CORS universal para Render + localhost
+    // ✅ Configuración de CORS universal para Render y localhost
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
 
-        // 🔥 Durante pruebas, permitimos todos los orígenes
+        // 🔥 Permitir orígenes tanto locales como en producción
         config.addAllowedOriginPattern("*");
-
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setExposedHeaders(List.of("Authorization", "Content-Type"));
