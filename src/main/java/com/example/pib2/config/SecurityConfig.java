@@ -9,20 +9,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
-import java.util.List;
 
 @Configuration
 public class SecurityConfig {
 
-    // ✅ Configuración de usuarios en memoria (solo para pruebas)
+    // Usuarios temporales para pruebas
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails admin = User.withUsername("admin")
-                .password("{noop}admin123") // {noop} = sin encriptar (solo para desarrollo)
+                .password("{noop}admin123")
                 .roles("ADMIN")
                 .build();
 
@@ -39,56 +34,29 @@ public class SecurityConfig {
         return new InMemoryUserDetailsManager(admin, user, gustavo);
     }
 
-    // ✅ Configuración principal de seguridad HTTP
+    // Configuración principal de seguridad HTTP
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .cors(Customizer.withDefaults()) // habilita CORS con la configuración del bean de abajo
-            .csrf(csrf -> csrf.disable())    // desactiva CSRF (útil para APIs REST)
+            // 🔹 CORS habilitado (usa CorsConfig.java)
+            .cors(Customizer.withDefaults())
+            // 🔹 Desactivar CSRF para APIs REST
+            .csrf(csrf -> csrf.disable())
+            // 🔹 Control de acceso
             .authorizeHttpRequests(auth -> auth
-                // Endpoints públicos
                 .requestMatchers(
-                    "/h2-console/**",
+                    "/api/**",
                     "/swagger-ui/**",
                     "/v3/api-docs/**",
-                    "/api-docs/**",
-                    "/api/**" // 🔹 Permitir temporalmente todos los endpoints API (útil para pruebas)
+                    "/h2-console/**"
                 ).permitAll()
-                // Todo lo demás requiere autenticación
                 .anyRequest().authenticated()
             )
-            // permite iframes (para H2 Console)
+            // 🔹 Permitir iframes (H2 Console)
             .headers(headers -> headers.frameOptions(frame -> frame.disable()))
-            // autenticación básica HTTP
+            // 🔹 Autenticación básica
             .httpBasic(Customizer.withDefaults());
 
         return http.build();
-    }
-
-    // ✅ Configuración global de CORS (Frontend + Backend)
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-
-        // 🔹 URLs que pueden acceder a tu API
-        configuration.setAllowedOrigins(List.of(
-                "http://localhost:3000",             // Frontend local
-                "https://pi-frontend2.onrender.com"  // Frontend en Render (ajusta si tu URL cambia)
-        ));
-
-        // 🔹 Métodos HTTP permitidos
-        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-
-        // 🔹 Headers permitidos
-        configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
-
-        // 🔹 Permitir credenciales (si usas cookies o auth básica)
-        configuration.setAllowCredentials(true);
-
-        // 🔹 Aplica esta configuración a todas las rutas
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-
-        return source;
     }
 }
