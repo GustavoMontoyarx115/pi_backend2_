@@ -1,7 +1,5 @@
 package com.example.pib2.models.dtos;
 
-
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,13 +8,15 @@ import lombok.Setter;
 
 import com.example.pib2.models.entities.Appointment;
 import com.example.pib2.models.entities.Clinic;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 /**
  * DTO (Data Transfer Object) para la entidad Appointment.
- * Permite transferir los datos sin exponer directamente la entidad JPA.
+ * Permite transferir los datos entre el backend y el frontend
+ * sin exponer directamente la entidad JPA.
  */
 @Getter
 @Setter
@@ -28,10 +28,24 @@ public class AppointmentDTO {
     private Long id;
     private String nombre;
     private String correo;
+
+    /**
+     * 🔹 Formato de fecha esperado: "yyyy-MM-dd"
+     * (Ejemplo: "2025-10-31")
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate fecha;
+
+    /**
+     * 🔹 Formato de hora esperado: "HH:mm"
+     * (Ejemplo: "14:30")
+     */
+    @JsonFormat(pattern = "HH:mm")
     private LocalTime hora;
+
     private String medico;
-    private Long clinicId;      // Relación con la clínica
+
+    private Long clinicId;      // ID de la clínica asociada
     private String clinicName;  // Nombre de la clínica (opcional para mostrar)
 
     /**
@@ -77,4 +91,3 @@ public class AppointmentDTO {
         return appointment;
     }
 }
-

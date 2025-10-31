@@ -16,7 +16,7 @@ public class Appointment {
     private String nombre;
 
     @Column(nullable = false, length = 150)
-    private String correo;  // ⚡ Campo obligatorio
+    private String correo;
 
     @Column(nullable = false)
     private LocalDate fecha;
@@ -27,19 +27,17 @@ public class Appointment {
     @Column(nullable = false, length = 120)
     private String medico;
 
-    // 🔗 Relación con User (Muchos a Uno)
+    // 🔗 Relación con User (opcional por ahora)
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = true) // ✅ cambiado a true
     private User user;
 
-    // 🔗 Relación con Clinic (Muchos a Uno)
+    // 🔗 Relación con Clinic (obligatoria)
     @ManyToOne
     @JoinColumn(name = "clinic_id", nullable = false)
     private Clinic clinic;
 
-    // =======================
     // Getters y Setters
-    // =======================
     public Long getId() {
         return id;
     }
