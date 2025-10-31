@@ -1,10 +1,9 @@
 package com.example.pib2.models.entities;
 
 import jakarta.persistence.*;
-import java.util.List;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users")  // Nombre de la tabla en la BD
 public class User {
 
     @Id
@@ -30,11 +29,6 @@ public class User {
     @Column(nullable = false, length = 20)
     private Rol rol;
 
-    // 📌 Relación con Appointment (un usuario puede tener muchas citas)
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Appointment> appointments;
-
-    // ====== CONSTRUCTORES ======
     public User() {}
 
     public User(String nombre, String email, String password,
@@ -47,72 +41,28 @@ public class User {
         this.rol = rol;
     }
 
-    // ====== GETTERS & SETTERS ======
-    public Long getId() {
-        return id;
-    }
+    // Getters y Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
 
-    public String getNombre() {
-        return nombre;
-    }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
 
-    public String getEmail() {
-        return email;
-    }
+    public String getTipoDocumento() { return tipoDocumento; }
+    public void setTipoDocumento(String tipoDocumento) { this.tipoDocumento = tipoDocumento; }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public String getNumeroDocumento() { return numeroDocumento; }
+    public void setNumeroDocumento(String numeroDocumento) { this.numeroDocumento = numeroDocumento; }
 
-    public String getPassword() {
-        return password;
-    }
+    public Rol getRol() { return rol; }
+    public void setRol(Rol rol) { this.rol = rol; }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getTipoDocumento() {
-        return tipoDocumento;
-    }
-
-    public void setTipoDocumento(String tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
-    }
-
-    public String getNumeroDocumento() {
-        return numeroDocumento;
-    }
-
-    public void setNumeroDocumento(String numeroDocumento) {
-        this.numeroDocumento = numeroDocumento;
-    }
-
-    public Rol getRol() {
-        return rol;
-    }
-
-    public void setRol(Rol rol) {
-        this.rol = rol;
-    }
-
-    public List<Appointment> getAppointments() {
-        return appointments;
-    }
-
-    public void setAppointments(List<Appointment> appointments) {
-        this.appointments = appointments;
-    }
-
-    // ====== ENUM DE ROLES ======
     public enum Rol {
         PACIENTE,
         MEDICO,

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.example.pib2.models.entities.Clinic;
+import com.example.pib2.models.entities.Appointment;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,11 +12,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/**
- * DTO (Data Transfer Object) para la entidad Clinic.
- * Se utiliza para transferir datos entre el backend y el frontend,
- * evitando exponer directamente la entidad JPA.
- */
 @Getter
 @Setter
 @NoArgsConstructor
@@ -35,17 +31,14 @@ public class ClinicDTO {
     private String whatsapp;
     private String tiktok;
 
-    // Lista de citas asociadas (solo datos básicos para evitar recursividad)
     private List<AppointmentDTO> appointments;
 
     /**
-     * Convierte una entidad Clinic a un objeto ClinicDTO.
-     * Incluye información básica de las citas asociadas.
+     * Convierte una entidad Clinic a DTO
+     * Incluye la lista de citas con datos básicos
      */
     public static ClinicDTO fromEntity(Clinic clinic) {
-        if (clinic == null) {
-            return null;
-        }
+        if (clinic == null) return null;
 
         return ClinicDTO.builder()
                 .id(clinic.getId())
@@ -62,17 +55,10 @@ public class ClinicDTO {
                 .appointments(
                         clinic.getAppointments() != null
                                 ? clinic.getAppointments().stream()
-                                        // Evita referencias circulares: se usa una conversión básica
-                                        .map(appointment -> AppointmentDTO.builder()
-                                                .id(appointment.getId())
-                                                .nombre(appointment.getNombre())
-                                                .correo(appointment.getCorreo())
-                                                .fecha(appointment.getFecha())
-                                                .hora(appointment.getHora())
-                                                .medico(appointment.getMedico())
-                                                .clinicId(clinic.getId())
-                                                .clinicName(clinic.getName())
-                                                .build())
+                                        .map(appointment -> {
+                                            // Convertimos a AppointmentDTO usando fromEntity para incluir userId
+                                            return AppointmentDTO.fromEntity(appointment);
+                                        })
                                         .collect(Collectors.toList())
                                 : null
                 )
@@ -80,8 +66,8 @@ public class ClinicDTO {
     }
 
     /**
-     * Convierte este DTO en una entidad Clinic.
-     * Si incluye citas, también las convierte.
+     * Convierte este DTO en una entidad Clinic
+     * Evita referencias circulares al convertir citas
      */
     public Clinic toEntity() {
         Clinic clinic = Clinic.builder()
@@ -98,11 +84,14 @@ public class ClinicDTO {
                 .tiktok(this.tiktok)
                 .build();
 
-        // Evita recursión infinita al asignar citas
+        // Convertir citas sin causar recursión infinita
         if (this.appointments != null) {
             clinic.setAppointments(
                     this.appointments.stream()
-                            .map(dto -> dto.toEntity(clinic))
+                            .map(dto -> {
+                                Appointment appointment = dto.toEntity(clinic, null); // User se asigna aparte si es necesario
+                                return appointment;
+                            })
                             .collect(Collectors.toList())
             );
         }
