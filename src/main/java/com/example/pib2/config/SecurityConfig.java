@@ -17,38 +17,50 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            // 🔹 Habilitamos CORS y desactivamos CSRF (necesario para APIs REST)
+            // 🔹 Habilitamos CORS y desactivamos CSRF para APIs REST
             .cors(Customizer.withDefaults())
             .csrf(csrf -> csrf.disable())
-            // 🔹 Permitimos todas las rutas públicas en la API
+            
+            // 🔹 Permitimos todas las rutas públicas de la API
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
-                    "/api/**",
-                    "/swagger-ui/**",
-                    "/v3/api-docs/**",
-                    "/h2-console/**"
+                    "/api/**",          // API pública
+                    "/swagger-ui/**",   // Swagger UI
+                    "/v3/api-docs/**",  // OpenAPI docs
+                    "/h2-console/**"    // H2-console
                 ).permitAll()
-                .anyRequest().permitAll() // Permite todo el resto también
+                .anyRequest().permitAll()   // Permite todo lo demás
             )
-            // 🔹 Desactivamos cualquier autenticación (para evitar 401)
+            
+            // 🔹 Desactivamos login, form y basic auth
             .httpBasic(httpBasic -> httpBasic.disable())
             .formLogin(form -> form.disable())
-            // 🔹 Habilitamos acceso al H2-console y a Swagger sin bloqueo
+            
+            // 🔹 Permite acceso al H2-console en iframe
             .headers(headers -> headers.frameOptions(frame -> frame.disable()));
 
         return http.build();
     }
 
-    // ✅ Configuración de CORS universal para Render y localhost
+    // ✅ Configuración de CORS para frontend en Vercel y localhost
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
 
-        // 🔥 Permitir orígenes tanto locales como en producción
-        config.addAllowedOriginPattern("*");
+        // 🔹 Orígenes permitidos
+        config.setAllowedOriginPatterns(List.of(
+            "https://pi-web2-brown.vercel.app", // frontend producción
+            "http://localhost:3000"              // frontend local
+        ));
+
+        // 🔹 Métodos HTTP permitidos
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+
+        // 🔹 Headers permitidos y expuestos
         config.setAllowedHeaders(List.of("*"));
         config.setExposedHeaders(List.of("Authorization", "Content-Type"));
+
+        // 🔹 Permite enviar cookies o headers de autenticación
         config.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
