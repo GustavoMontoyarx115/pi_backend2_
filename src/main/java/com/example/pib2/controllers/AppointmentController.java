@@ -31,6 +31,7 @@ public class AppointmentController {
         this.userService = userService;
     }
 
+    // 🔹 Obtener todas las citas
     @GetMapping
     public ResponseEntity<List<AppointmentDTO>> getAllAppointments() {
         List<AppointmentDTO> appointments = appointmentService.findAll()
@@ -40,6 +41,7 @@ public class AppointmentController {
         return ResponseEntity.ok(appointments);
     }
 
+    // 🔹 Obtener cita por ID
     @GetMapping("/{id}")
     public ResponseEntity<AppointmentDTO> getAppointmentById(@PathVariable Long id) {
         Appointment appointment = appointmentService.findById(id);
@@ -47,22 +49,43 @@ public class AppointmentController {
         return ResponseEntity.ok(AppointmentDTO.fromEntity(appointment));
     }
 
+    // 🔹 Crear nueva cita
     @PostMapping
     public ResponseEntity<AppointmentDTO> createAppointment(@RequestBody AppointmentDTO dto) {
-        Clinic clinic = clinicService.findById(dto.getClinicId());
-        if (clinic == null) return ResponseEntity.badRequest().build();
+        try {
+            Clinic clinic;
 
-        User user = null;
-        if (dto.getUserId() != null) {
-            user = userService.findById(dto.getUserId());
-            if (user == null) return ResponseEntity.badRequest().build();
+            // Si no se envía clinicId, asignar la primera clínica disponible
+            if (dto.getClinicId() == null) {
+                clinic = clinicService.findAll()
+                        .stream()
+                        .findFirst()
+                        .orElseThrow(() -> new RuntimeException("No hay clínicas registradas"));
+            } else {
+                clinic = clinicService.findById(dto.getClinicId());
+                if (clinic == null) return ResponseEntity.badRequest().build();
+            }
+
+            User user = null;
+            if (dto.getUserId() != null) {
+                user = userService.findById(dto.getUserId());
+                if (user == null) return ResponseEntity.badRequest().build();
+            }
+
+            Appointment appointment = dto.toEntity(clinic, user);
+            Appointment saved = appointmentService.save(appointment);
+
+            System.out.println("✅ Nueva cita creada con clínica (id): " + (clinic != null ? String.valueOf(clinic.getId()) : "null"));
+
+            return ResponseEntity.ok(AppointmentDTO.fromEntity(saved));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.internalServerError().build();
         }
-
-        Appointment appointment = dto.toEntity(clinic, user);
-        Appointment saved = appointmentService.save(appointment);
-        return ResponseEntity.ok(AppointmentDTO.fromEntity(saved));
     }
 
+    // 🔹 Actualizar cita existente
     @PutMapping("/{id}")
     public ResponseEntity<AppointmentDTO> updateAppointment(
             @PathVariable Long id,
@@ -71,8 +94,18 @@ public class AppointmentController {
         Appointment existing = appointmentService.findById(id);
         if (existing == null) return ResponseEntity.notFound().build();
 
-        Clinic clinic = clinicService.findById(dto.getClinicId());
-        if (clinic == null) return ResponseEntity.badRequest().build();
+        Clinic clinic;
+
+        // Igual que en POST: asigna una clínica si no viene el ID
+        if (dto.getClinicId() == null) {
+            clinic = clinicService.findAll()
+                    .stream()
+                    .findFirst()
+                    .orElseThrow(() -> new RuntimeException("No hay clínicas registradas"));
+        } else {
+            clinic = clinicService.findById(dto.getClinicId());
+            if (clinic == null) return ResponseEntity.badRequest().build();
+        }
 
         User user = null;
         if (dto.getUserId() != null) {
@@ -89,14 +122,17 @@ public class AppointmentController {
         existing.setUser(user);
 
         Appointment updated = appointmentService.update(existing);
+        System.out.println("♻️ Cita actualizada correctamente con clínica (id): " + (clinic != null ? String.valueOf(clinic.getId()) : "null"));
         return ResponseEntity.ok(AppointmentDTO.fromEntity(updated));
     }
 
+    // 🔹 Eliminar cita
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAppointment(@PathVariable Long id) {
         Appointment appointment = appointmentService.findById(id);
         if (appointment == null) return ResponseEntity.notFound().build();
         appointmentService.delete(id);
+        System.out.println("🗑️ Cita eliminada con ID: " + id);
         return ResponseEntity.noContent().build();
     }
 }

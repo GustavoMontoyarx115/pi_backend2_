@@ -3,10 +3,13 @@ package com.example.pib2.servicios;
 import com.example.pib2.models.entities.Clinic;
 import com.example.pib2.repositories.ClinicRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
+@Transactional
 public class ClinicService {
 
     private final ClinicRepository clinicRepository;
@@ -20,10 +23,12 @@ public class ClinicService {
     }
 
     public Clinic findById(Long id) {
+        if (id == null) return null;
         return clinicRepository.findById(id).orElse(null);
     }
 
     public Clinic save(Clinic clinic) {
+        if (clinic == null) throw new IllegalArgumentException("La clínica no puede ser nula");
         return clinicRepository.save(clinic);
     }
 
@@ -34,10 +39,15 @@ public class ClinicService {
         return clinicRepository.save(clinic);
     }
 
-    public void deleteById(Long id) {
+    public void delete(Long id) {
+        if (id == null) throw new IllegalArgumentException("Id null al eliminar clínica");
         if (!clinicRepository.existsById(id)) {
             throw new IllegalArgumentException("No se puede eliminar: la clínica no existe.");
         }
         clinicRepository.deleteById(id);
+    }
+
+    public Optional<Clinic> findByName(String name) {
+        return clinicRepository.findByName(name);
     }
 }

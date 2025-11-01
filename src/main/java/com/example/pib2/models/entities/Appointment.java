@@ -1,10 +1,14 @@
 package com.example.pib2.models.entities;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
+@Data
+
 @Table(name = "appointments")
 public class Appointment {
 
@@ -12,6 +16,7 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // 🔹 Datos básicos de la cita
     @Column(nullable = false, length = 120)
     private String nombre;
 
@@ -27,78 +32,17 @@ public class Appointment {
     @Column(nullable = false, length = 120)
     private String medico;
 
-    // 🔗 Relación con User (opcional por ahora)
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = true) // ✅ cambiado a true
+    // 🔹 Relación con el usuario (opcional)
+    // Si el usuario no está logueado, este campo será NULL sin causar error
+    @ManyToOne(optional = true, fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = true)
     private User user;
 
-    // 🔗 Relación con Clinic (obligatoria)
-    @ManyToOne
+    // 🔹 Relación con la clínica (obligatoria)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "clinic_id", nullable = false)
     private Clinic clinic;
 
-    // Getters y Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public LocalDate getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
-    }
-
-    public LocalTime getHora() {
-        return hora;
-    }
-
-    public void setHora(LocalTime hora) {
-        this.hora = hora;
-    }
-
-    public String getMedico() {
-        return medico;
-    }
-
-    public void setMedico(String medico) {
-        this.medico = medico;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Clinic getClinic() {
-        return clinic;
-    }
-
-    public void setClinic(Clinic clinic) {
-        this.clinic = clinic;
-    }
+    
+   
 }

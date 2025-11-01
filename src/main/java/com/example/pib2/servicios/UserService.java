@@ -3,10 +3,13 @@ package com.example.pib2.servicios;
 import com.example.pib2.models.entities.User;
 import com.example.pib2.repositories.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
 import java.util.List;
 
 @Service
+@Transactional
 public class UserService {
 
     private final UserRepository userRepository;
@@ -20,7 +23,12 @@ public class UserService {
     }
 
     public User findById(Long id) {
-        return userRepository.findById(id).orElse(null);
+        if (id == null) {
+            System.out.println("UserService.findById: id recibido es null");
+            return null;
+        }
+        Optional<User> opt = userRepository.findById(id);
+        return opt.orElse(null);
     }
 
     public User save(User user) {
@@ -34,7 +42,8 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public void deleteById(Long id) {
+    public void delete(Long id) {
+        if (id == null) throw new IllegalArgumentException("Id null al eliminar usuario");
         if (!userRepository.existsById(id)) {
             throw new IllegalArgumentException("No se puede eliminar: el usuario no existe.");
         }
